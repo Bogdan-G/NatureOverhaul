@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class BehaviorMoss extends BehaviorDeathSwitch {
-    private static Block[] mossy = {Blocks.mossy_cobblestone, Blocks.stonebrick};
-    private static Block[] smooth = {Blocks.cobblestone, Blocks.stonebrick};
-    private static int[] mossMeta = {0, 1};
+    private static final Block[] mossy = {Blocks.mossy_cobblestone, Blocks.stonebrick};
+    private static final Block[] smooth = {Blocks.cobblestone, Blocks.stonebrick};
+    private static final int[] mossMeta = {0, 1};
     public int growthAttemp = 15;
 
     public BehaviorMoss(){

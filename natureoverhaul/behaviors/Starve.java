@@ -10,7 +10,7 @@ import net.minecraft.world.World;
  */
 public class Starve {
 
-    public final int maxRadius = 10;
+    public static final int maxRadius = 10;
     public int maxNeighbour, starvingRadius;
     public Starve(int number, int radius){
         this.maxNeighbour = number;

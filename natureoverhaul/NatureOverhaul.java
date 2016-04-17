@@ -145,14 +145,10 @@ public final class NatureOverhaul {
 		}
 		String[] ids = config.get(optionsCategory[1], "Lumberjack compatible items", temp.toArray(new String[1]), "Separate item names on new lines").getStringList();
 		for (String param : ids) {
-			if (param != null && !param.equals("")) {
-				try {
-                    it = GameData.getItemRegistry().getObject(param);
-                    if(it!=null)
-					    axes.add(it);
-				} catch (Exception ignored) {
-				}
-			}
+			try { if (param != null && param.length()!=0) {
+			it = GameData.getItemRegistry().getObject(param);
+			if(it!=null) {axes.add(it);}
+			}} catch (Exception ignored) {}
 		}
         setBiomes();
 		//Saving Forge recommended config file.
@@ -174,7 +170,7 @@ public final class NatureOverhaul {
      */
     private void parseTreeConfig(String[] ids) {
         for (String param : ids) {
-            if (param != null && !param.isEmpty()) {
+            if (param != null && param.length()!=0) {
                 String[] temp = param.split("-");
                 if (temp.length == 3) {
                     Block idSaplin, idLo, idLef;
@@ -434,7 +430,7 @@ public final class NatureOverhaul {
         moddedBonemeal = config.getBoolean(optionsCategory[names.length], "Enable modded Bonemeal", true);
         String[] blackList = config.getString("BlackList custom dimensions", optionsCategory[names.length], "1", "By dimension ids. Use [id1;id2] to add a range of id, prefix with - to exclude.").split(",");
         for(String text:blackList){
-            if(text!=null && !text.isEmpty()){
+            if(text!=null && text.length()!=0){
                 boolean done = false;
                 if(text.contains("[") && text.contains("]")){
                     String[] results = text.substring(text.indexOf("[")+1, text.indexOf("]")).split(";");
