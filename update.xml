@@ -1,0 +1,62 @@
+<mod modid="natureoverhaul">
+    <mcVersion version="1.7.10">
+        <release type="release" version="0.10.0"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/vz58fyayg83w2bz/NatureOverhaul-0.10.0(1.7.10).jar"
+                 md5="C01378C16A3BD796950F0DBDD0B552AB"
+                />
+        <release type="release" version="0.9.2"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/wf4owbp4grr7l01/NatureOverhaul-0.9.2(1.7.10).jar"
+                 md5="746A03CE70FD6C1B8ED87FCC12A1B91F"
+                />
+        <release type="release" version="0.9.1"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/w2gb4tfj4nc0mc7/NatureOverhaul-0.9.1(1.7.10).jar"
+                 md5="7509BEDC9C5D97A27AAA485A6D8AAF95"
+                />
+        <release type="release" version="0.9"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/k57iah655r5555c/NatureOverhaul-0.9(1.7.10).jar"
+                 md5="BA17A6CFC7928FB84E86C579009E28D5"
+                />
+        <release type="release" version="0.8"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/j2n5e25wlktajnn/NatureOverhaul-0.8(1.7.10).jar"
+                 md5="9629DBB12408AF864172E54E815B3BF3"
+                />
+    </mcVersion>
+    <mcVersion version="1.7.2">
+        <release type="release" version="0.8"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/0b006wdhbbl7154/NatureOverhaul-0.8(1.7.2).jar"
+                 md5="DE3638DDB18033079AE242EA3DFB7CE3"
+                />
+    </mcVersion>
+	<mcVersion version="1.6.4">
+        <release type="release" version="0.8"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/c9xdgoseod64qq2/NatureOverhaul_0.8(1.6.X).zip"
+                 md5="E99A064A6AA163FFF5E6C96836953052"
+                />
+        <release type="release" version="0.6"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/zdipmg6jbzbu6j4/NatureOverhaul_0.6(1.6.X).zip"
+                />
+        <release type="release" version="0.5"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/47l9j6qo07cfao5/NatureOverhaul_0.5(1.6.X).zip"
+                />
+    </mcVersion>
+    <mcVersion version="1.5.2">
+        <release type="release" version="0.5"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/bi7obqls1zqtomq/NatureOverhaul_0.5(1.5.X).zip"
+		 md5="3758DAB7B5C9C676015CEAED6A004DC3"
+                />
+        <release type="release" version="0.3"
+                 url="http://www.minecraftforum.net/topic/1651891-/#Nature"
+                 download="http://www.mediafire.com/download/dtrg3ryegis6smr/NatureOverhaul_0.3(1.5.X).zip"
+                />
+    </mcVersion>
+</mod>
