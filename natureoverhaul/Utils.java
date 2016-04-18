@@ -11,6 +11,8 @@ import java.util.Random;
  * @author Clinton Alexander
  */
 public final class Utils {
+	//пишите комментарии где и куда, вот этот например ниже
+	@deprecated
 	@Override
 	public String toString() {
 		return "Nature Overhaul Utility Class";
@@ -37,12 +39,11 @@ public final class Utils {
 	 * @return An array of randomized coordinates
 	 */
 	public static int[] findRandomNeighbour(int i, int j, int k, int range) {
-		int[] coord = new int[] { i, j, k };
+	int[] coord = new int[] { i, j, k };
         if(range>0) {
-            Random rand = new Random();
-            int dist;
+            final Random rand = new Random();
             for (int index = 0; index < coord.length; index++) {
-                dist = rand.nextInt(range + 1);
+                int dist = rand.nextInt(range + 1);
                 if (rand.nextBoolean())
                     coord[index] += dist;
                 else
@@ -112,7 +113,8 @@ public final class Utils {
 		for (int y = -radius; y <= radius; y++) {
 			for (int x = -radius; x <= radius; x++) {
 				for (int z = -radius; z <= radius; z++) {
-					if (ignoreSelf && x == 0 && y == 0 && z == 0) {
+					//а давайте переместим?
+					if (ignoreSelf && z == 0 && y == 0 && x == 0) {
 						z++;
 					}
 					if (world.getBlock(i + x, j + y, k + z) == id) {

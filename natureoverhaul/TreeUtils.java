@@ -14,7 +14,7 @@ import java.util.List;
  */
 public final class TreeUtils {
     private static final int MIN_LEAF_LAYER = 1;//Let's consider a leaf layer is enough
-	private static final int MAX_TREE_HEIGHT = 16;
+    private static final int MAX_TREE_HEIGHT = 16;
     private static final int MAX_RANGE = 6;
 	// Flag controls
 	private static final int iBits = 5, jBits = 7, kBits = 5;

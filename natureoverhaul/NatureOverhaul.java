@@ -1,6 +1,6 @@
 package natureoverhaul;
 
-import com.google.common.collect.ImmutableMap;
+//import com.google.common.collect.ImmutableMap;
 import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.*;
@@ -50,26 +50,26 @@ public final class NatureOverhaul {
     public boolean mossCorruptStone = true;
     public final HashSet<Integer> globalDimensionBlacklist = new HashSet<Integer>();
     public boolean wildAnimalsBreed = true;
-	public int wildAnimalBreedRate = 0, wildAnimalDeathRate = 0, growthType = 0, fireRange = 2, despawnTimeSapling = 6000;
+    public int wildAnimalBreedRate = 0, wildAnimalDeathRate = 0, growthType = 0, fireRange = 2, despawnTimeSapling = 6000;
     private ArrayList<Block> saplingID = new ArrayList<Block>();
     private ArrayList<Item> axes = new ArrayList<Item>();
-	private static Map<Block, NOType> IDToTypeMapping = new IdentityHashMap<Block, NOType>();
-	private static Map<Block, Boolean> IDToGrowingMapping = new IdentityHashMap<Block, Boolean>(), IDToDyingMapping = new IdentityHashMap<Block, Boolean>();
+    private static Map<Block, NOType> IDToTypeMapping = new IdentityHashMap<Block, NOType>();
+    private static Map<Block, Boolean> IDToGrowingMapping = new IdentityHashMap<Block, Boolean>(), IDToDyingMapping = new IdentityHashMap<Block, Boolean>();
     private static Map<Block, Integer> IDToFireCatchMapping = new IdentityHashMap<Block, Integer>(), IDToFirePropagateMapping = new IdentityHashMap<Block, Integer>();
-	private static final String[] names = new String[] { "Sapling", "Tree", "Plants", "Netherwort", "Grass", "Reed", "Cactus", "Mushroom", "Mushroom Tree", "Leaf", "Crops", "Moss", "Cocoa", "Fire" };
-	private boolean[] dieSets = new boolean[names.length], growSets = new boolean[names.length + 1];
-	private float[] deathRates = new float[names.length], growthRates = new float[names.length + 1];
-	private static String[] optionsCategory = new String[names.length + 1];
-	static {
+    private static final String[] names = new String[] { "Sapling", "Tree", "Plants", "Netherwort", "Grass", "Reed", "Cactus", "Mushroom", "Mushroom Tree", "Leaf", "Crops", "Moss", "Cocoa", "Fire" };
+    private boolean[] dieSets = new boolean[names.length], growSets = new boolean[names.length + 1];
+    private float[] deathRates = new float[names.length], growthRates = new float[names.length + 1];
+    private static String[] optionsCategory = new String[names.length + 1];
+    static {
 		for (int i = 0; i < names.length; i++) {
 			optionsCategory[i] = names[i] + " Options";
 		}
 		optionsCategory[names.length] = "Misc Options";
 	}
-	private NOConfiguration config;
-	private Class<?> api;
+    private NOConfiguration config;
+    private Class<?> api;
     private int updateLCG = (new Random()).nextInt();
-	private Logger logger;
+    private final Logger logger;
 
     /**
      * Register main tick and config change handler
@@ -486,11 +486,9 @@ public final class NatureOverhaul {
                             Set<Integer> set = getTreeConfig(entry);
                             for(int type : set) {
                                 TreeData data = testWorld.getTree(entry, type);
-                                if (data != null) {
-                                    String text = data.toString();
+                                    String text = String.valueOf(data);//loss code
                                     if (!temp.contains(text))
                                         temp.add(text);
-                                }
                             }
                         }
                         testWorld.clearProvider();
@@ -590,7 +588,7 @@ public final class NatureOverhaul {
      *@return the complete path for the configuration file, or an empty string if there is none
      */
     public static String getConfigPath(){
-        return INSTANCE.config!=null?INSTANCE.config.toString():"";
+        return INSTANCE.config != null ? String.valueOf(INSTANCE.config) : "";
     }
 
     /**
@@ -659,7 +657,9 @@ public final class NatureOverhaul {
 	}
 
 	public static Map<Block, NOType> getIDToTypeMapping() {
-		return ImmutableMap.copyOf(IDToTypeMapping);
+		//хмм а что если сделать изменяемой? все равно не трогается, ибо я заметил что неизменяемые штуки могут дольше выполняться и периодами фигурируют в nps в некоторых ветках вызовов(как наиболее долгий в методе по выполнению)
+		//протестим
+		return IDToTypeMapping;
 	}
 
 	/**
@@ -871,6 +871,10 @@ public final class NatureOverhaul {
 	 * {@link #death(World, int, int, int, Block)}.
 	 */
 	private void onUpdateTick(World world, int i, int j, int k, Block id) {
+		//reduce call lel, 60->12 in 1s=20 ticks
+		Random rnd_out = new Random();
+		int chk_updatetick=rnd_out.nextInt(5);
+		if (chk_updatetick == 5) {
 		NOType type = Utils.getType(id);
 		if (isGrowing(id) && world.rand.nextFloat() < getGrowthProb(world, i, j, k, id, type)) {
 			grow(world, i, j, k, id);
@@ -878,6 +882,6 @@ public final class NatureOverhaul {
 		}
 		if (isMortal(id) && (hasDied(world, i, j, k, id) || world.rand.nextFloat() < getDeathProb(world, i, j, k, id, type))) {
 			death(world, i, j, k, id);
-		}
+		}}
 	}
 }
