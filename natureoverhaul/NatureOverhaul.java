@@ -69,7 +69,7 @@ public final class NatureOverhaul {
     private NOConfiguration config;
     private Class<?> api;
     private int updateLCG = (new Random()).nextInt();
-    private final Logger logger;
+    private Logger logger;
 
     /**
      * Register main tick and config change handler

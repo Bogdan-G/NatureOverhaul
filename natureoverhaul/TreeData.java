@@ -103,7 +103,9 @@ public final class TreeData {
     }
 
     //не нашел где используется метод или наследуется именно toString(), оно в коде мода вообще тока 4 раза было упомянуто, 2 из низ овверрайд, 2 ост вообще в гл по сути классе где не идет, хотя может методец где то использует внутри тут неявно, посему и висит,
-    @deprecated
+    /*
+    * @Deprecated
+    */
     @Override
     public String toString(){
         StringBuilder value = new StringBuilder();

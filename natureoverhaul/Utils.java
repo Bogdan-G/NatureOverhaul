@@ -12,7 +12,9 @@ import java.util.Random;
  */
 public final class Utils {
 	//пишите комментарии где и куда, вот этот например ниже
-	@deprecated
+	/*
+	* @Deprecated
+	*/
 	@Override
 	public String toString() {
 		return "Nature Overhaul Utility Class";
