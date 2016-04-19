@@ -502,6 +502,10 @@ public final class NatureOverhaul {
             }
             else {
                 World world = event.world;
+		//reduce call
+		Random rnd_out = new Random();
+		int chk_updatetick=rnd_out.nextInt(5);
+		if (chk_updatetick > 2) {
                 if (!globalDimensionBlacklist.contains(world.provider.dimensionId) && !world.activeChunkSet.isEmpty()) {
                     Iterator<?> it = world.activeChunkSet.iterator();
                     while (it.hasNext()) {
@@ -532,7 +536,7 @@ public final class NatureOverhaul {
                             }
                         }
                     }
-                }
+                }}
             }
         }
 	}
@@ -871,10 +875,10 @@ public final class NatureOverhaul {
 	 * {@link #death(World, int, int, int, Block)}.
 	 */
 	private void onUpdateTick(World world, int i, int j, int k, Block id) {
-		//reduce call lel, 60->12 in 1s=20 ticks
+		//reduce call
 		Random rnd_out = new Random();
 		int chk_updatetick=rnd_out.nextInt(5);
-		if (chk_updatetick == 5) {
+		if (chk_updatetick > 2) {
 		NOType type = Utils.getType(id);
 		if (isGrowing(id) && world.rand.nextFloat() < getGrowthProb(world, i, j, k, id, type)) {
 			grow(world, i, j, k, id);
