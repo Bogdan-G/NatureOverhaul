@@ -16,7 +16,7 @@ public class BehaviorMushroom extends BehaviorDeathDisappear{
 	@Override
 	public void grow(World world, int i, int j, int k, Block id) {
 		//Small chance of having a mushroom tree, grown using vanilla method
-		if (Math.random() < NatureOverhaul.getGrowthProb(world, i, j, k, Blocks.brown_mushroom_block, NOType.MUSHROOMCAP))
+		if ((new org.bogdang.modifications.random.XSTR()).nextFloat() < NatureOverhaul.getGrowthProb(world, i, j, k, Blocks.brown_mushroom_block, NOType.MUSHROOMCAP))
 			super.grow(world, i, j, k, id);
 		else{//Grow a similar mushroom nearby
 			int coord[];

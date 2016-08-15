@@ -68,7 +68,7 @@ public final class NatureOverhaul {
 	}
     private NOConfiguration config;
     private Class<?> api;
-    private int updateLCG = (new Random()).nextInt();
+    private int updateLCG = (new org.bogdang.modifications.random.XSTR()).nextInt();
     private Logger logger;
 
     /**
@@ -507,7 +507,7 @@ public final class NatureOverhaul {
             else {
                 World world = event.world;
 		//reduce call
-		Random rnd_out = new Random();
+		Random rnd_out = new org.bogdang.modifications.random.XSTR();
 		int chk_updatetick=rnd_out.nextInt(5);
 		if (chk_updatetick > 2) {
                 if (!globalDimensionBlacklist.contains(world.provider.dimensionId) && !world.activeChunkSet.isEmpty()) {
@@ -879,7 +879,7 @@ public final class NatureOverhaul {
 	 */
 	private void onUpdateTick(World world, int i, int j, int k, Block id) {
 		//reduce call
-		Random rnd_out = new Random();
+		Random rnd_out = new org.bogdang.modifications.random.XSTR();
 		int chk_updatetick=rnd_out.nextInt(5);
 		if (chk_updatetick > 2) {
 		NOType type = Utils.getType(id);

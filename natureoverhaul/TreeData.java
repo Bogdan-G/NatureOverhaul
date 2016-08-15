@@ -110,7 +110,7 @@ public final class TreeData {
     public String toString(){
         StringBuilder value = new StringBuilder();
         for(Component c:Component.values()){
-            value.append(GameData.getBlockRegistry().getNameForObject(getBlock(c))).append("(").append(getMeta(c)).append(")-");
+            value.append(GameData.getBlockRegistry().getNameForObject(getBlock(c))).append('(').append(getMeta(c)).append(")-");
         }
         value.deleteCharAt(value.length()-1);
         return value.toString();

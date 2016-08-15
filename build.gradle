@@ -23,7 +23,7 @@ minecraft {
 }
 version = "0.10.0"
 archivesBaseName = project.projectDir.name
-sourceSets.main.java{srcDirs project.projectDir.getPath() include("natureoverhaul/**")}
+sourceSets.main.java{srcDirs project.projectDir.getPath() include("natureoverhaul/**", "org/**")}
 sourceSets.main.resources{srcDirs project.projectDir.getPath() include("*.info", "*.mcmeta" , "META-INF/**")}
 processResources {
     // this will ensure that this task is redone when the versions change.
@@ -50,4 +50,21 @@ jar {
     manifest {
         attributes 'FMLAT': "natureoverhaul_at.cfg"
     }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task devJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+    manifest {
+        attributes 'FMLAT': "natureoverhaul_at.cfg"
+    }
+}
+
+artifacts {
+    archives devJar
 }

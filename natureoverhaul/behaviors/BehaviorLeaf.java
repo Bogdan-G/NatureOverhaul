@@ -34,7 +34,7 @@ public class BehaviorLeaf extends Behavior {
 	public void grow(World world, int i, int j, int k, Block id) {
 		if (world.isAirBlock(i, j - 1, k) && isValidBiome(world, i, k, minTemp, maxTemp, minRainfall) && world.rand.nextFloat() < NatureOverhaul.getAppleGrowthProb(world, i, j, k))
 			Utils.emitItem(world, i, j - 1, k, new ItemStack(Items.apple));
-		if (NatureOverhaul.INSTANCE.growthType % 2 == 1 && world.isAirBlock(i, j + 1, k)) {
+		if ((NatureOverhaul.INSTANCE.growthType & 1) == 1 && world.isAirBlock(i, j + 1, k)) {
             TreeData tree = TreeData.getTree(id, world.getBlockMetadata(i, j, k), TreeData.Component.LEAF);
             if(tree!=null) {
                 Block sap = tree.getBlock(TreeData.Component.SAPLING);

@@ -43,7 +43,7 @@ public final class Utils {
 	public static int[] findRandomNeighbour(int i, int j, int k, int range) {
 	int[] coord = new int[] { i, j, k };
         if(range>0) {
-            final Random rand = new Random();
+            final Random rand = new org.bogdang.modifications.random.XSTR();
             for (int index = 0; index < coord.length; index++) {
                 int dist = rand.nextInt(range + 1);
                 if (rand.nextBoolean())
